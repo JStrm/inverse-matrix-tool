@@ -1,5 +1,5 @@
 [package]
-name = "inverse-matrix-tool-2"
+name = "inverse-matrix-tool"
 version = "0.1.0"
 edition = "2024"
 
