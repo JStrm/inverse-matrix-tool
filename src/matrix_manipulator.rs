@@ -12,7 +12,10 @@ pub fn add_rows(matrix: &mut Vec<Vec<RatNum>>, source_row_index: usize, target_r
     // clone the source row to avoid simultaneous mutable and immutable borrows
     let source_row_cloned = matrix[source_row_index].clone();
 
-    for (source_element, target_element) in source_row_cloned.iter().zip(matrix[target_row_index].iter_mut()) {
+    for (source_element, target_element) in source_row_cloned
+        .iter()
+        .zip(matrix[target_row_index].iter_mut())
+    {
         *target_element = target_element.add(source_element);
     }
 }

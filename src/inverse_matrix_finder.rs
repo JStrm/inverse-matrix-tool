@@ -15,7 +15,6 @@ pub fn invert(matrix: &mut Vec<Vec<RatNum>>) -> bool {
         }
     }
 
-
     let mut wide_matrix = put_two_matrices_side_by_side(matrix, &unit_matrix(first_row_len));
 
     let success = gaussian_elimination::eliminate(&mut wide_matrix);
@@ -47,7 +46,10 @@ fn unit_matrix(size: usize) -> Vec<Vec<RatNum>> {
     result
 }
 
-fn put_two_matrices_side_by_side(left: &Vec<Vec<RatNum>>, right: &Vec<Vec<RatNum>>) -> Vec<Vec<RatNum>> {
+fn put_two_matrices_side_by_side(
+    left: &Vec<Vec<RatNum>>,
+    right: &Vec<Vec<RatNum>>,
+) -> Vec<Vec<RatNum>> {
     if left.len() != right.len() {
         panic!("Matrices of different sizes");
     }

@@ -9,7 +9,10 @@ impl RatNum {
         if denominator == 0 {
             panic!("Denominator cannot be zero!");
         }
-        RatNum { n: numerator, d: denominator }
+        RatNum {
+            n: numerator,
+            d: denominator,
+        }
     }
 
     pub fn from_int(int: isize) -> Self {
@@ -56,7 +59,7 @@ impl RatNum {
         let gcd = self.greatest_common_divisor(self.n.abs(), self.d.abs());
         self.n /= gcd;
         self.d /= gcd;
-        
+
         // Move minus sign to numerator
         if self.d < 0 {
             self.n *= -1;

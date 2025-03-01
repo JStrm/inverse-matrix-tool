@@ -23,14 +23,14 @@ pub fn eliminate(matrix: &mut Vec<Vec<RatNum>>) -> bool {
 }
 
 fn make_diagonal_non_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index: usize) -> bool {
-    if !(matrix[diagonal_index][diagonal_index].equals(&RatNum::from_int(0))){
+    if !(matrix[diagonal_index][diagonal_index].equals(&RatNum::from_int(0))) {
         return true;
     }
 
     for b in diagonal_index..matrix.len() {
-        if matrix[b][diagonal_index].equals(&RatNum::from_int(0)){
+        if matrix[b][diagonal_index].equals(&RatNum::from_int(0)) {
             matrix_manipulator::add_rows(matrix, b, diagonal_index);
-            return true
+            return true;
         }
     }
 
@@ -43,11 +43,11 @@ fn multiply_row_to_eq_one(matrix: &mut Vec<Vec<RatNum>>, diagonal_index: usize) 
 }
 
 fn subtract_elements_below_to_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index: usize) {
-    for c in diagonal_index+1..matrix.len() {
+    for c in diagonal_index + 1..matrix.len() {
         let value = matrix[c][diagonal_index].clone();
         let multiplier = value.multiply(&RatNum::from_int(-1));
 
-        if multiplier.equals(&RatNum::from_int(0)){
+        if multiplier.equals(&RatNum::from_int(0)) {
             continue;
         }
 
@@ -62,7 +62,7 @@ fn subtract_elements_above_to_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index
         let value = matrix[c][diagonal_index].clone();
         let multiplier = value.multiply(&RatNum::from_int(-1));
 
-        if multiplier.equals(&RatNum::from_int(0)){
+        if multiplier.equals(&RatNum::from_int(0)) {
             continue;
         }
 
