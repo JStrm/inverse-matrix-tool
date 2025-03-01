@@ -52,6 +52,9 @@ impl RatNum {
         (self.n == other.n) && (self.d == other.d)
     }
     pub fn to_string(&self) -> String {
+        if self.d == 1 {
+            return format!("{}", self.n)
+        }
         format!("{}/{}", self.n, self.d)
     }
 

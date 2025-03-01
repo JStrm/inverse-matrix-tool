@@ -4,9 +4,10 @@ mod gaussian_elimination;
 mod inverse_matrix_finder;
 mod matrix_manipulator;
 mod rational_number;
+mod pretty_matrix_printer;
 
 fn main() {
-    // TODO: Implement user input and pretty output
+    // TODO: Implement user input
     let mut matrix = vec![
         vec![
             RatNum::from_int(7),
@@ -27,5 +28,5 @@ fn main() {
 
     inverse_matrix_finder::invert(&mut matrix);
 
-    println!("{:?}", matrix);
+    pretty_matrix_printer::print(&matrix);
 }
