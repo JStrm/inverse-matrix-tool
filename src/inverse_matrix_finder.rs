@@ -67,7 +67,7 @@ fn right_half_of_matrix(matrix: &Vec<Vec<RatNum>>) -> Vec<Vec<RatNum>> {
     let mut right_half: Vec<Vec<RatNum>> = Vec::new();
     let n = matrix.len();
 
-    for (i, row) in matrix.iter().enumerate() {
+    for row in matrix.iter() {
         right_half.push(row[n..].to_vec());
     }
 
