@@ -73,10 +73,7 @@ fn right_half_of_matrix(matrix: &Vec<Vec<RatNum>>) -> Vec<Vec<RatNum>> {
 }
 
 fn copy_matrix_into_another_matrix(source: &Vec<Vec<RatNum>>, target: &mut Vec<Vec<RatNum>>) {
-    // TODO: Copy the rows directly
     for a in 0..target.len() {
-        for b in 0..target.len() {
-            target[a][b] = source[a][b].clone();
-        }
+        target[a] = source[a].clone();
     }
 }

@@ -58,8 +58,6 @@ fn subtract_elements_below_to_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index
 }
 
 fn subtract_elements_above_to_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index: usize) {
-
-    // TODO: is this correct?
     for c in 0..diagonal_index {
         let value = matrix[c][diagonal_index].clone();
         let multiplier = value.multiply(&RatNum::from_int(-1));
