@@ -2,12 +2,12 @@ extern crate core;
 
 use crate::rational_number::RatNum;
 
+mod console_matrix_input;
 mod gaussian_elimination;
 mod inverse_matrix_finder;
 mod matrix_manipulator;
-mod rational_number;
 mod pretty_matrix_printer;
-mod console_matrix_input;
+mod rational_number;
 
 fn main() {
     // let mut matrix = console_matrix_input::get();

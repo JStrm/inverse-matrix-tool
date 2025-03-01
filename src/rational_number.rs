@@ -53,7 +53,7 @@ impl RatNum {
     }
     pub fn to_string(&self) -> String {
         if self.d == 1 {
-            return format!("{}", self.n)
+            return format!("{}", self.n);
         }
         format!("{}/{}", self.n, self.d)
     }

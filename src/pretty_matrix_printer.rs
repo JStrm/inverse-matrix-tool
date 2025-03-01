@@ -5,7 +5,7 @@ pub fn print(matrix: &Vec<Vec<RatNum>>) {
 
     let mut lines = Vec::<String>::new();
 
-    for _ in 0..(matrix.len()*2) {
+    for _ in 0..(matrix.len() * 2) {
         lines.push(String::new());
     }
 
@@ -13,7 +13,7 @@ pub fn print(matrix: &Vec<Vec<RatNum>>) {
         let mut widest_number = 0;
         for row in 0..matrix.len() {
             let number_str = matrix[row][column].to_string();
-            lines[row*2].push_str(&number_str);
+            lines[row * 2].push_str(&number_str);
 
             if number_str.len() > widest_number {
                 widest_number = number_str.len();
@@ -21,17 +21,13 @@ pub fn print(matrix: &Vec<Vec<RatNum>>) {
         }
 
         for row in 0..matrix.len() {
-
             let number_str = matrix[row][column].to_string();
-            lines[row*2].push_str(",  ");
+            lines[row * 2].push_str(",  ");
 
-            for _ in widest_number..=number_str.len(){
-                lines[row*2].push(' ');
+            for _ in widest_number..=number_str.len() {
+                lines[row * 2].push(' ');
             }
-
-
         }
-
     }
 
     for line in lines {

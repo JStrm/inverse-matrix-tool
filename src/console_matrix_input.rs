@@ -1,5 +1,5 @@
-use std::io;
 use crate::rational_number::RatNum;
+use std::io;
 
 pub fn get() -> Vec<Vec<RatNum>> {
     println!("Enter size of square matrix: ");
@@ -9,7 +9,7 @@ pub fn get() -> Vec<Vec<RatNum>> {
     println!("Separate number on a row by spaces");
     println!("         and row by newlines.");
 
-    let matrix= read_matrix_from_input(n);
+    let matrix = read_matrix_from_input(n);
 
     matrix
 }
@@ -53,8 +53,6 @@ fn read_matrix_from_input(n: usize) -> Vec<Vec<RatNum>> {
         for integer in int_row.iter() {
             ratnum_row.push(RatNum::from_int(*integer));
         }
-
-
 
         matrix.push(ratnum_row);
     }
