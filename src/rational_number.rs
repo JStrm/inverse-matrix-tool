@@ -59,6 +59,11 @@ impl RatNum {
             self.n *= -1;
             self.d *= -1;
         }
+
+        // For consistency sake, make all zeroes the same
+        if self.n == 0 {
+            self.d = 1;
+        }
     }
     fn greatest_common_divisor(&self, a: isize, b: isize) -> isize {
         let mut x = a;
