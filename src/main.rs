@@ -6,6 +6,7 @@ mod matrix_manipulator;
 mod rational_number;
 
 fn main() {
+    // TODO: Implement user input and pretty output
     let mut matrix = vec![
         vec![
             RatNum::from_int(7),
