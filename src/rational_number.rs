@@ -16,6 +16,13 @@ impl RatNum {
         RatNum { n: int, d: 1 }
     }
 
+    fn clone(&self) -> Self {
+        RatNum {
+            n: self.n,
+            d: self.d,
+        }
+    }
+
     pub fn add(&self, other: &RatNum) -> RatNum {
         let new_n = self.n * other.d + other.n * self.d;
         let new_d = self.d * other.d;
@@ -28,6 +35,12 @@ impl RatNum {
         let new_n = self.n * other.n;
         let new_d = self.d * other.d;
         let mut result = RatNum::new(new_n, new_d);
+        result.simplify();
+        result
+    }
+
+    pub fn inverse(&self) -> RatNum {
+        let mut result = RatNum::new(self.d, self.n);
         result.simplify();
         result
     }
@@ -58,5 +71,11 @@ impl RatNum {
         }
 
         x
+    }
+}
+
+impl Clone for RatNum {
+    fn clone(&self) -> Self {
+        self.clone()
     }
 }
