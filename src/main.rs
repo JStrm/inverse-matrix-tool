@@ -2,6 +2,7 @@ use crate::rational_number::RatNum;
 
 mod rational_number;
 mod matrix_manipulator;
+mod inverse_matrix_finder;
 
 fn main() {
     let mut matrix = vec![
@@ -16,6 +17,8 @@ fn main() {
     let inverse = matrix[0][0].inverse();
 
     matrix_manipulator::multiply_row(&mut matrix, 0, &inverse);
+
+    inverse_matrix_finder::invert(&mut matrix);
 
 
     println!("{:?}", matrix);
