@@ -3,6 +3,7 @@ use crate::rational_number::RatNum;
 mod rational_number;
 mod matrix_manipulator;
 mod inverse_matrix_finder;
+mod gaussian_elimination;
 
 fn main() {
     let mut matrix = vec![
