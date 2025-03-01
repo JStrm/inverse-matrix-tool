@@ -45,6 +45,9 @@ impl RatNum {
         result
     }
 
+    pub fn equals(&self, other: &RatNum) -> bool {
+        (self.n == other.n) && (self.d == other.d)
+    }
     pub fn to_string(&self) -> String {
         format!("{}/{}", self.n, self.d)
     }
