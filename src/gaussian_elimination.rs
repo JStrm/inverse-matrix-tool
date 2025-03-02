@@ -28,7 +28,7 @@ fn make_diagonal_non_zero(matrix: &mut Vec<Vec<RatNum>>, diagonal_index: usize) 
     }
 
     for b in diagonal_index..matrix.len() {
-        if matrix[b][diagonal_index].equals(&RatNum::from_int(0)) {
+        if !(matrix[b][diagonal_index].equals(&RatNum::from_int(0))) {
             matrix_manipulator::add_rows(matrix, b, diagonal_index);
             return true;
         }
