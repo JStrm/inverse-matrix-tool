@@ -9,10 +9,14 @@ impl RatNum {
         if denominator == 0 {
             panic!("Denominator cannot be zero!");
         }
-        RatNum {
+        let mut result = RatNum {
             n: numerator,
             d: denominator,
-        }
+        };
+
+        result.simplify();
+
+        result
     }
 
     pub fn from_int(int: isize) -> Self {
