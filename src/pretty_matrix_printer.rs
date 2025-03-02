@@ -24,7 +24,7 @@ pub fn print(matrix: &Vec<Vec<RatNum>>) {
             let number_str = matrix[row][column].to_string();
             lines[row * 2].push_str(",  ");
 
-            for _ in widest_number..=number_str.len() {
+            for _ in 0..=(widest_number - number_str.len()) {
                 lines[row * 2].push(' ');
             }
         }

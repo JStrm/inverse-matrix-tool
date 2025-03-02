@@ -11,6 +11,7 @@ fn main() {
     let mut matrix = console_matrix_input::get();
 
     if inverse_matrix_finder::invert(&mut matrix) {
+        println!("Inverse matrix found:");
         pretty_matrix_printer::print(&matrix);
     } else {
         println!("Matrix in not regular, can't invert.");
