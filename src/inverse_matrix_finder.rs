@@ -2,6 +2,8 @@ use crate::gaussian_elimination;
 use crate::rational_number::RatNum;
 
 pub fn invert(matrix: &mut Vec<Vec<RatNum>>) -> bool {
+
+    // Test jestli matice splňuje potřebné podmínky, není prázndá apod.
     if matrix.len() == 0 {
         return false;
     }
@@ -15,16 +17,23 @@ pub fn invert(matrix: &mut Vec<Vec<RatNum>>) -> bool {
         }
     }
 
+    // Matice je zprava rozšířena o jednotkovou matici.
+    // Tato rozšířená matice je uložena do nové proměnné.
     let mut wide_matrix = put_two_matrices_side_by_side(matrix, &unit_matrix(first_row_len));
 
+    // Na rozšířenou matici je použita gausova eliminační metoda.
+    // Tato funkce se pokusí z levé poloviny matice udělat jednotkovou matici.
     let success = gaussian_elimination::eliminate(&mut wide_matrix);
 
-    let inverse_matrix = right_half_of_matrix(&wide_matrix);
-
+    // Pokud byla gausova eliminační metoda úspěšná, vstupní matice je přepsána na svou inverzní matici
     if success {
+        // Pravá strana rozšířené matice je inverzní matice
+        let inverse_matrix = right_half_of_matrix(&wide_matrix);
         copy_matrix_into_another_matrix(&inverse_matrix, matrix);
     }
 
+    // `success` je boolean, který oznamuje jestli byla eliminace úspěšna, tedy jestli
+    // matice byla regulární.
     success
 }
 

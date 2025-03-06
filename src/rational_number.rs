@@ -1,3 +1,5 @@
+// Implementace racionálního čísla
+// Po každé operaci se zlomek převede do svého základního tvaru (`simplify`)
 #[derive(Debug)]
 pub struct RatNum {
     n: isize, // numerator

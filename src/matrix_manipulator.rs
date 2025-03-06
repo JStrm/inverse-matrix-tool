@@ -1,5 +1,8 @@
 use crate::rational_number::RatNum;
 
+// Základní metody na minupalaci s maticí, přičítání a násobení řádků.
+// Výměna řádků není potřeba
+
 pub fn add_rows(matrix: &mut Vec<Vec<RatNum>>, source_row_index: usize, target_row_index: usize) {
     if source_row_index >= matrix.len() || target_row_index >= matrix.len() {
         panic!("Row index out of bounds");

@@ -1,7 +1,7 @@
 use crate::rational_number::RatNum;
 
+// Tento kód vypíše matici. Vypíše jí jako zlomky. Zarovná prvky do sloupců.
 pub fn print(matrix: &Vec<Vec<RatNum>>) {
-    // TODO: Make this more readable
 
     let mut lines = Vec::<String>::new();
 

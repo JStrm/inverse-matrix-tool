@@ -3,12 +3,16 @@ use std::io;
 
 pub fn get() -> Vec<Vec<RatNum>> {
     println!("Enter size of square matrix: ");
+    // Vstup velikosti matice
     let n = read_number_from_input();
 
     println!("Enter each integer element of matrix.");
     println!("Separate number on a row by spaces");
     println!("         and row by newlines.");
 
+    // Vstup prvků matice
+    // předevede data z řádků z konzole do objectu Vec<Vec<RatNum>>
+    // `Vec` je ekvivalent listu z pythonu.
     let matrix = read_matrix_from_input(n);
 
     matrix

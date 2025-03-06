@@ -5,20 +5,33 @@ use crate::rational_number::RatNum;
 pub fn eliminate(matrix: &mut Vec<Vec<RatNum>>) -> bool {
     let size = matrix.len();
 
+    // Tento loop zaručí, že na diagonále levé strany matice budou jendničky.
     for a in 0..size {
+        // Tato funkce převede prvek na diagonále na nenulové číslo přičtením
+        // libovolného řádku pod tímto prvkem na diagonále. Pokud žádný takový řádek neexistuje,
+        // vrátí false (matice není regulérní)
         if !make_diagonal_non_zero(matrix, a) {
             return false;
         }
 
+        // Tato funkce vydělí řádek tak, aby hodnota na diagonále byla `1`
         multiply_row_to_eq_one(matrix, a);
 
+        // Tato funkce odečte řádek od řádků pod sebou tak, aby hodnoty pod hodnotou na
+        // diagonále byly `0`
         subtract_elements_below_to_zero(matrix, a);
     }
+    // Po tomto loopu je levá polovina matice v horním trojuhelníkovém tvaru, a všude
+    // na diagonále jsou jedničky.
 
+
+    // Tento loop udělá z levé strany matice jednotkovou matici. Tím je gausova
+    // eliminace dokončena
     for a in 0..size {
         subtract_elements_above_to_zero(matrix, a);
     }
 
+    // Vrátí `true`, protože proces eliminace byl úspěšný.
     true
 }
 
