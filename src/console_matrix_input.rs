@@ -2,13 +2,14 @@ use crate::rational_number::RatNum;
 use std::io;
 
 pub fn get() -> Vec<Vec<RatNum>> {
-    println!("Enter size of square matrix: ");
+    println!("Zadejte rozměr čtvercové matice: ");
     // Vstup velikosti matice
     let n = read_number_from_input();
 
-    println!("Enter each integer element of matrix.");
-    println!("Separate number on a row by spaces");
-    println!("         and row by newlines.");
+    println!("Zadejte všechny prvky matice.");
+    println!("Zadávejte pouze celá čísla.");
+    println!("Na řádku oddělujte čísla mezerami");
+    println!("a řádky oddělujte enterem.");
 
     // Vstup prvků matice
     // předevede data z řádků z konzole do objectu Vec<Vec<RatNum>>
@@ -22,12 +23,12 @@ fn read_number_from_input() -> usize {
     let mut input = String::new();
     io::stdin()
         .read_line(&mut input)
-        .expect("Failed to read line");
+        .expect("Nelze přečíst řádek");
 
     input
         .trim()
         .parse()
-        .expect("Please enter a valid positive matrix size")
+        .expect("Velikost matice musí být přirozené číslo.")
 }
 
 fn read_matrix_from_input(n: usize) -> Vec<Vec<RatNum>> {
@@ -37,16 +38,16 @@ fn read_matrix_from_input(n: usize) -> Vec<Vec<RatNum>> {
         let mut row_input = String::new();
         io::stdin()
             .read_line(&mut row_input)
-            .expect("Failed to read line");
+            .expect("Nelze přečíst řádek");
 
         let int_row: Vec<isize> = row_input
             .split_whitespace()
-            .map(|s| s.parse().expect("Invalid integer input"))
+            .map(|s| s.parse().expect("Vstup musí být celé číslo."))
             .collect();
 
         if int_row.len() != n {
             panic!(
-                "Invalid number of elements. Expected {}, got {}.",
+                "Špatný počet prvků na řádku. Očekáváno: {}, vloženo: {}.",
                 n,
                 int_row.len()
             );

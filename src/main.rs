@@ -15,11 +15,11 @@ fn main() {
     // Upravuje ji přímo, hodnota co vrací je boolean. Pokud je true, inverze matice
     // byla úspěšná. Pokud false, nastala chyba a matice není regulární.
     if inverse_matrix_finder::invert(&mut matrix) {
-        println!("Inverse matrix found:");
+        println!("Inverzní matice:");
 
         // Kód na výpis matice do konzole
         pretty_matrix_printer::print(&matrix);
     } else {
-        println!("Matrix in not regular, can't invert.");
+        println!("Matice není regulární, nelze ji invertovat.");
     }
 }
